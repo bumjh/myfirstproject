@@ -126,55 +126,6 @@ def plot_images(e, generator, samples=10, figsize=(10, 10)):
     plt.savefig('cgan_images/%d.png' % e)
     plt.close()
 
-#
-# epochs =100
-#
-# batch_size = 256
-# smooth = 0.1
-# x_train, y_train, _, _ = load_mnist_data()
-#
-# adam = get_optimizer()
-# discriminator = get_discriminator(adam)
-# generator = get_generator(adam)
-# cgan = get_cgan_network(discriminator, latent_dim, generator, adam)
-#
-# # real = np.ones(shape=(batch_size,1))
-# # fake = np.ones(shape=(batch_size,1))
-# y_dis = np.concatenate([np.ones((batch_size,1))*(1-smooth), np.zeros((batch_size,1))])
-# y_gen = np.ones((batch_size,1))
-#
-# for e in range(epochs+1):
-#     for i in range(x_train.shape[0] // batch_size):
-#         discriminator.trainable = True
-#         # idx = np.random.randint(0, x_train.shape[0], size=batch_size)
-#         # image_batch, labels = x_train[idx], y_train[idx]
-#
-#         X_batch = x_train[i*batch_size : (i+1)*batch_size]
-#         real_labels = y_train[i*batch_size: (i+1)*batch_size].reshape(-1, 1)
-#
-#         noise = np.random.normal(0, 1, size=[batch_size, latent_dim])
-#         random_labels = np.random.randint(0, 10, batch_size).reshape(-1, 1)
-#         generated_images = generator.predict_on_batch([noise, random_labels])
-#
-#         combined_labels = np.concatenate([real_labels, random_labels])
-#         X = np.concatenate([X_batch, generated_images])
-#
-#         d_loss = discriminator.train_on_batch([X, combined_labels], y_dis)
-#
-#         discriminator.trainable = False
-#
-#         noise = np.random.normal(0, 1, size=[batch_size, latent_dim])
-#         random_labels = np.random.randint(0, 10, batch_size).reshape(-1, 1)
-#         g_loss = cgan.train_on_batch([noise, random_labels], y_gen)
-#         print("%d batch %d/%d [D loss: %f, acc: %f] [G loss: %f]" % (e, i, x_train.shape[0]//batch_size, d_loss[0], d_loss[1], g_loss[0]))
-#
-#     plot_images(e, generator, 10)
-
-
-
-
-
-
 
 def train(epochs=1, batch_size=128):
     x_train, y_train, _, _ = load_mnist_data()
